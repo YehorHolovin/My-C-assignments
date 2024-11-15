@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 
 //«м≥нн≥ дл€ розм≥ру масиву.
-constexpr int ROWS = 4;
-constexpr int COLS = 4;
+constexpr int ROWS = 10;
+constexpr int COLS = 10;
 
 #endif // CONSTANTS_H

@@ -120,6 +120,15 @@ void SumColArrays(int arr[ROWS][COLS], int row, int column) { //сума стовчиків з
 		std::cout << "Sum column number [" << i + 1 << "]: " << colSum << std::endl;
 	}
 }
+int SumEvenRowsNotEvenClos(int arr[ROWS][COLS], int row, int cols) { // Сума елементів на парних рядках та непарних стовпцях
+	int sumArr = 0;
+	for (int i = 0; i < ROWS; i += 2) {
+		for (int j = 1; j < COLS; j += 2) {
+			sumArr += arr[i][j];
+		}
+	}
+	return sumArr;
+}
 
 //Заміна значень масиву
 
@@ -139,5 +148,33 @@ void TransposeArray(int arr[ROWS][COLS], int new_arr[ROWS][COLS], int str, int c
 		for (int j = 0; j < col; j++) {
 			new_arr[j][i] = arr[i][j];
 		}
+	}
+}
+bool SimetricArray(int arr[ROWS][COLS], int str, int col) { // перевірка симетріїї масиву
+	bool isSimetric = true;  // Прапорець для перевірки симетрії
+	for (int i = 0; i < ROWS - 1; i++) {
+		for (int j = i + 1; j < COLS; j++) {
+			if (arr[i][j] != arr[j][i]) {
+				isSimetric = false; 
+				break; // Вихід із внутрішнього циклу, якщо знайдена невідповідність
+			}
+		}
+		if (!isSimetric) break;// Вихід із зовнішнього циклу, якщо знайдена невідповідність
+	}
+	return isSimetric;
+}
+void FindValArray(int arr[ROWS][COLS], int str, int col,int number) { // знаходження значення в масиві	
+	bool found = false;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			if (number == arr[i][j]) {
+				std::cout << "Ваше число є в масиві і воно знаходиться на таких позиціях [" << i << "] [" << j << "] " << std::endl;
+				found = true;
+				break;
+			}
+		}
+	}
+	if (!found) {
+		std::cout << "Вашого числа не має." << std::endl;
 	}
 }
